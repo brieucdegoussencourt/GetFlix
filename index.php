@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>Getflix Homepage</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
@@ -21,7 +21,7 @@
     <header class="navbar-section">
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><i class="bi bi-chat"></i> Brag Spot</a>
+                <a class="navbar-brand" href="#"><i class="bi bi-chat"></i>GETFLIX</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -32,9 +32,9 @@
                             <a class="nav-link" aria-current="page" href="#home">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#services">services</a>
+                            <a class="nav-link" href="#services">Trailers</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="#about">about us</a>
                         </li>
                         <li class="nav-item">
@@ -42,7 +42,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#contact">contact</a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link" href="login.php">login</a>
                         </li>
@@ -61,13 +61,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-12 col-sm-12 text-content">
-                    <h1>the digital service you really want</h1>
-                    <p>We build effective strategies to help you reach customers and prospects across the entire web.
+                    <h1>Stream unlimited trailers !</h1>
+                    <p>Do you love movies as much as we do?
                     </p>
-                    <button class="btn"><a href="#">Estimate Project</a></button>
                 </div>
-                <div class="col-lg-8 col-md-12 col-sm-12">
-                    <img src="images/hero-image.png" alt="" class="img-fluid">
+                <div class="col-lg-8 col-md-12 col-sm-12 text-center">
+                    <img src="./images/logo.png" alt="Getflix Logo" class="img-fluid" >
                 </div>
 
             </div>
@@ -76,7 +75,7 @@
 
     <!-- services section  -->
 
-    <section class="services-section" id="services">
+    <!-- <section class="services-section" id="services">
         <div class="container">
             <div class="row">
 
@@ -149,11 +148,11 @@
 
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- about section  -->
 
-    <section class="about-section" id="about">
+    <!-- <section class="about-section" id="about">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12">
@@ -169,11 +168,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- project section  -->
 
-    <section class="project-section" id="projects">
+    <!-- <section class="project-section" id="projects">
         <div class="container">
             <div class="row text">
                 <div class="col-lg-6 col-md-12">
@@ -244,10 +243,10 @@
             </div>
 
         </div>
-    </section>
+    </section> -->
 
     <!-- contact section  -->
-
+<!-- 
     <section class="contact-section" id="contact">
         <div class="container">
 
@@ -322,7 +321,7 @@
             </div>
 
         </div>
-    </section>
+    </section> -->
 
     <!-- footer section  -->
 
