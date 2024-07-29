@@ -328,11 +328,8 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-12 col-sm-12">
-                    <p class="logo"><i class="bi bi-chat"></i> Brag Spot</p>
-                </div>
                 <div class="col-lg-6 col-md-12 col-sm-12">
-                    <ul class="d-flex">
+                    <ul class="d-flex text-center">
                         <li><a href="#">Home</a></li>
                         <li><a href="#">services</a></li>
                         <li><a href="#">projects</a></li>
@@ -341,8 +338,10 @@
                     </ul>
                 </div>
 
-                <div class="col-lg-2 col-md-12 col-sm-12">
-                    <p>&copy;2023_BragSpot</p>
+                <div class="col-lg-2 col-md-12 col-sm-12 text-center">
+                    <a href="https://github.com/brieucdegoussencourt" target="_blank"><img
+                    src="./images/github_icon_grey.jpg" width="86" height="50" alt="github icon"></a>
+            <h6>brieucdegoussencourt / July 2024</h6>
                 </div>
 
                 <div class="col-lg-1 col-md-12 col-sm-12">
