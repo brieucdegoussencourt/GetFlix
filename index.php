@@ -13,11 +13,7 @@
 
     <link rel="stylesheet" href="./css/style.css">
 </head>
-
-<body class="img js-fullheight" style="background-image: url(./images/bg.jpg);">
-
     <!-- navbar section   -->
-
     <header class="navbar-section">
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
@@ -60,12 +56,12 @@
     <section id="home" class="hero-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-12 col-sm-12 text-content">
+                <div class="col-lg-6 col-md-12 col-sm-12 text-content p-5">
                     <h1>Stream unlimited trailers !</h1>
                     <p>Do you love movies as much as we do?
                     </p>
                 </div>
-                <div class="col-lg-8 col-md-12 col-sm-12 text-center">
+                <div class="col-lg-6 col-md-12 col-sm-12 text-center">
                     <img src="./images/logo.png" alt="Getflix Logo" class="img-fluid" >
                 </div>
 
@@ -326,31 +322,13 @@
     <!-- footer section  -->
 
     <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-12 col-sm-12">
-                    <ul class="d-flex text-center">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">services</a></li>
-                        <li><a href="#">projects</a></li>
-                        <li><a href="#">about us</a></li>
-                        <li><a href="#">contact</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-2 col-md-12 col-sm-12 text-center">
+        <div class="container text-center">
+            <div class="row text-center">
+                <div class="col text-center">
                     <a href="https://github.com/brieucdegoussencourt" target="_blank"><img
-                    src="./images/github_icon_grey.jpg" width="86" height="50" alt="github icon"></a>
-            <h6>brieucdegoussencourt / July 2024</h6>
+                    src="./images/github-icon-red.png" width="100" alt="github icon"></a>
+                    <h6 class="mt-3">brieucdegoussencourt / BeCode / July 2024</h6>
                 </div>
-
-                <div class="col-lg-1 col-md-12 col-sm-12">
-                    <!-- back to top  -->
-
-                    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-                            class="bi bi-arrow-up-short"></i></a>
-                </div>
-
             </div>
 
         </div>
