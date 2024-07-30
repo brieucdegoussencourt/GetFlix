@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body>
+<body class="img js-fullheight" style="background-image: url(./images/bg.jpg);">
 
     <!-- navbar section   -->
 
