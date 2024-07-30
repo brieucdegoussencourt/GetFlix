@@ -49,7 +49,7 @@ if (!isset($_SESSION['username'])) {
                         <li class="nav-item">
                             <a class="nav-link" href="#services">services</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="#about">about us</a>
                         </li>
                         <li class="nav-item">
@@ -57,7 +57,7 @@ if (!isset($_SESSION['username'])) {
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#contact">contact</a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <div class="dropdown">
                                 <a class='nav-link dropdown-toggle' href='edit.php?id=$res_id' id='dropdownMenuLink'
@@ -132,7 +132,7 @@ if (!isset($_SESSION['username'])) {
 
     <!-- services section  -->
 
-    <section class="services-section" id="services">
+    <!-- <section class="services-section" id="services">
         <div class="container">
             <div class="row">
 
@@ -205,11 +205,11 @@ if (!isset($_SESSION['username'])) {
 
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- about section  -->
 
-    <section class="about-section" id="about">
+    <!-- <section class="about-section" id="about">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12">
@@ -225,11 +225,11 @@ if (!isset($_SESSION['username'])) {
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- project section  -->
 
-    <section class="project-section" id="projects">
+    <!-- <section class="project-section" id="projects">
         <div class="container">
             <div class="row text">
                 <div class="col-lg-6 col-md-12">
@@ -300,11 +300,11 @@ if (!isset($_SESSION['username'])) {
             </div>
 
         </div>
-    </section>
+    </section> -->
 
     <!-- contact section  -->
 
-    <section class="contact-section" id="contact">
+    <!-- <section class="contact-section" id="contact">
         <div class="container">
 
             <div class="row gy-4">
@@ -378,7 +378,7 @@ if (!isset($_SESSION['username'])) {
             </div>
 
         </div>
-    </section>
+    </section> -->
 
     <!-- footer section  -->
 
