@@ -26,13 +26,13 @@
                             <a class="nav-link"  href="#home">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="./frontend/stream.php">Stream</a>
+                            <a class="nav-link" aria-current="page" href="./stream.php">Stream</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="login.php">login</a>
+                            <a class="nav-link" href="../login.php">login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="signup.php">signup</a>
+                            <a class="nav-link" href="./signup.php">signup</a>
                         </li>
                     </ul>
                 </div>
@@ -57,7 +57,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="col">
+                <div class="row">
                     <!-- Movie and TV Show will be displayed here -->
                     <div id="content"></div>
                 </div>
