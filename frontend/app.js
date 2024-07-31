@@ -1,25 +1,34 @@
-// Function to handle the search functionality
+console.log('app.js loaded'); // Check if JS is loaded
+
 async function searchData(event) {
-    event.preventDefault();
+    event.preventDefault(); // Prevent form from submitting
+    console.log('Search button clicked'); // Debugging
+
     const query = document.getElementById('searchInput').value;
     const mediaType = document.getElementById('mediaType').value;
-    console.log(`Searching for: ${query} in ${mediaType}`);
-    
+    console.log(`Query: ${query}, Media Type: ${mediaType}`); // Debugging
+
+    const url = `./backend/getData.php?query=${encodeURIComponent(query)}&media_type=${encodeURIComponent(mediaType)}`;
+    console.log(`Fetching data from: ${url}`); // Debugging
+
     try {
-        const response = await fetch(`../backend/getData.php?query=${query}&media_type=${mediaType}`);
+        const response = await fetch(url);
+        console.log('Response received'); // Debugging
+
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
+        
         const data = await response.json();
-        console.log('Searched data:', data);
+        console.log('Data fetched:', data); // Debugging
         displayData(data.results);
     } catch (error) {
         console.error('Error searching data:', error);
     }
 }
 
-// Function to display the fetched data in the content area
 function displayData(data) {
+    console.log('Displaying data', data); // Debugging
     const content = document.getElementById('content');
     content.innerHTML = '';
     data.forEach(item => {
@@ -34,6 +43,3 @@ function displayData(data) {
         content.appendChild(card);
     });
 }
-
-// Initial fetch to load data when the page loads (optional if you want to load something by default)
-//fetchData();
