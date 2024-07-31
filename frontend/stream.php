@@ -1,22 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Getflix Stream</title>
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
-
-    
-    <link rel="stylesheet" href="../css/stream_style.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/stream_style.css">
 </head>
 <body>
-    
     <!-- navbar section   -->
     <header class="navbar-section">
         <nav class="navbar navbar-expand-lg">
@@ -45,37 +39,33 @@
             </div>
         </nav>
     </header>
-
     <!-- hero section  -->
-
-
     <section id="home" class="hero-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-12 col-sm-12 text-content p-5">
-                <h1>Movies and TV Shows</h1>
-                <div>
-                    <select id="filter">
-                        <option value="movie">Movies</option>
-                        <option value="tv">TV Shows</option>
-                    </select>
-                    <button onclick="fetchData()">Filter</button>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12 text-content p-5">
+                    <h1>Movies and TV Shows</h1>
+                    <div class="controls">
+                        <select id="filter" onchange="fetchData()">
+                            <option value="movie" selected>Movies</option>
+                            <option value="tv">TV Shows</option>
+                        </select>
+                        <button onclick="fetchData()">Filter</button>
+                        <form id="searchForm" onsubmit="searchData(event)">
+                            <input type="text" id="searchInput" placeholder="Search">
+                            <button type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col">
+                    <!-- Movie and TV Show will be displayed here -->
+                    <div id="content"></div>
                 </div>
             </div>
         </div>
-    </div>
-    <main id="content">
-        <!-- Movies and TV Shows will be displayed here -->
-        </main>
     </section>
 
-    <div>
-
- 
-    
-
     <!-- footer section  -->
-
     <footer>
         <div class="container text-center">
             <div class="row text-center">
@@ -85,15 +75,10 @@
                     <h6 class="mt-3">brieucdegoussencourt / BeCode / July 2024</h6>
                 </div>
             </div>
-
         </div>
-
     </footer>
 
-
     <!-- script section  -->
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>

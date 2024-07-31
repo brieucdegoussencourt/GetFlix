@@ -4,7 +4,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 1rem;
 }
 
 .movie-card {
@@ -28,4 +27,5 @@
 
 .movie-card p {
     margin: 0.5rem;
+    color: black;
 }
