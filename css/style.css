@@ -78,20 +78,18 @@ body{
 
 .name{
     font-size: 30px;
-    background-color: #2B547E;
-    color: rgba(205, 22, 30,1);
-    padding: 50px;
+    color:  rgb(254, 255, 237, 1);;
+    background-color: #000807;
+    padding: 2rem;
 }
 
 /* hero section  */
 
 .hero-section {
-    padding: 20px;
     background: #000807;
 }
 
 .hero-section .text-content {
-    margin-top: 50px;
 }
 
 .hero-section h1 {
@@ -102,7 +100,6 @@ body{
 }
 
 .hero-section h4 {
-    margin-top: 30px;
     color: rgb(254, 255, 237, 1);
 }
 
