@@ -23,13 +23,13 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link"  href="#home">Home</a>
+                            <a class="nav-link"  href="../index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="./frontend/stream.php">Stream</a>
+                            <a class="nav-link" aria-current="page" href="./stream.php">Stream</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="login.php">login</a>
+                            <a class="nav-link" href="./login.php">login</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="signup.php">signup</a>
@@ -44,25 +44,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12 text-content p-5">
-                    <h1>Movies and TV Shows</h1>
-                    <div class="controls">
-                        <select id="filter" onchange="fetchData()">
-                            <option value="movie" selected>Movies</option>
-                            <option value="tv">TV Shows</option>
-                        </select>
-                        <button onclick="fetchData()">Filter</button>
-                        <form id="searchForm" onsubmit="searchData(event)">
-                            <input type="text" id="searchInput" placeholder="Search">
-                            <button type="submit">Search</button>
-                        </form>
-                    </div>
-                </div>
-                <div class="col">
-                    <!-- Movie and TV Show will be displayed here -->
-                    <div id="content"></div>
-                </div>
-            </div>
-        </div>
+                    <h1>Movies & TV Shows</h1>
+                    <form onsubmit="searchData(event)">
+    <input type="text" id="searchInput" placeholder="Search...">
+    <select id="mediaType">
+        <option value="movie">Movies</option>
+        <option value="tv">TV Shows</option>
+    </select>
+    <button type="submit">Search</button>
+</form>
+<div id="content"></div>
     </section>
 
     <!-- footer section  -->
