@@ -82,7 +82,7 @@ if (!isset($_SESSION['username'])) {
         <div class="row">
             <div class="col-lg-6 col-md-12 col-sm-12 text-content p-5">
                 <h1>Stream any movies & TV shows</h1>
-                <form onsubmit="searchData(event); return false;">
+                <form id="searchForm" onsubmit="searchData(event); return false;">
                     <input type="text" id="searchInput" placeholder="Search...">
                     <select id="mediaType">
                         <option value="movie">Movies</option>
@@ -104,7 +104,7 @@ if (!isset($_SESSION['username'])) {
         <div class="row text-center">
             <div class="col text-center">
                 <a href="https://github.com/brieucdegoussencourt" target="_blank">
-                    <img src="./images/github-icon-red.png" width="100" alt="github icon">
+                    <img src="./images/github-icon-red.png" width="100" alt="github icon" class="github-icon">
                 </a>
                 <h6 class="mt-3">brieucdegoussencourt / BeCode / July 2024</h6>
             </div>

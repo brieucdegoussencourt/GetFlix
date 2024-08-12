@@ -24,7 +24,7 @@ async function searchData(event) {
 
         // Fetch trailer links for each movie
         const moviesWithTrailers = await Promise.all(data.results.map(async (movie) => {
-            const trailerUrl = `https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=3a7031c592fe904b320cba541d174789`;
+            const trailerUrl = `https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=a2e04e780120a2bd372881b15bb83024`;
             const trailerResponse = await fetch(trailerUrl);
             const trailerData = await trailerResponse.json();
             const trailer = trailerData.results.find(video => video.type === 'Trailer' && video.site === 'YouTube');
