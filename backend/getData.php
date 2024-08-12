@@ -1,7 +1,6 @@
 <?php
 header('Content-Type: application/json');
 
-$apiKey = '3a7031c592fe904b320cba541d174789';
 $apiKey = 'a2e04e780120a2bd372881b15bb83024';
 $query = urlencode($_GET['query']);
 $mediaType = urlencode($_GET['media_type']);
