@@ -65,14 +65,12 @@
         <div class="container text-center">
             <div class="row text-center">
                 <div class="col text-center">
-                    <a href="https://github.com/brieucdegoussencourt" target="_blank"><img
-                    src="./images/github-icon-red.png" width="100" alt="github icon"></a>
+                    <a href="https://github.com/brieucdegoussencourt/GetFlix" target="_blank"><img
+                    src="./images/github-icon-red.png" width="100" alt="github icon" class="github-icon"></a>
                     <h6 class="mt-3">brieucdegoussencourt / BeCode / July 2024</h6>
                 </div>
             </div>
-
         </div>
-
     </footer>
 
 

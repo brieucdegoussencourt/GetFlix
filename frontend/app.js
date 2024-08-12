@@ -21,7 +21,18 @@ async function searchData(event) {
         
         const data = await response.json();
         console.log('Data fetched:', data); // Debugging
-        displayData(data.results);
+
+        // Fetch trailer links for each movie
+        const moviesWithTrailers = await Promise.all(data.results.map(async (movie) => {
+            const trailerUrl = `https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=3a7031c592fe904b320cba541d174789`;
+            const trailerResponse = await fetch(trailerUrl);
+            const trailerData = await trailerResponse.json();
+            const trailer = trailerData.results.find(video => video.type === 'Trailer' && video.site === 'YouTube');
+            movie.trailerLink = trailer ? `https://www.youtube.com/watch?v=${trailer.key}` : null;
+            return movie;
+        }));
+
+        displayData(moviesWithTrailers);
     } catch (error) {
         console.error('Error searching data:', error);
     }
@@ -35,10 +46,11 @@ function displayData(data) {
         const card = document.createElement('div');
         card.className = 'movie-card';
         card.innerHTML = `
-            <img src="https://image.tmdb.org/t/p/w500${item.poster_path}" alt="${item.title || item.name}">
+             <div class="image-container">
+                <img src="https://image.tmdb.org/t/p/w500${item.poster_path}" alt="${item.title || item.name}">
+                <button class="play-button" ${item.trailerLink ? `onclick="window.open('${item.trailerLink}', '_blank')"` : ''}>Play</button>
+            </div>
             <h3>${item.title || item.name}</h3>
-            <p>Genre: ${item.genre_ids.join(', ')}</p>
-            <p>Duration: ${item.runtime || (item.episode_run_time && item.episode_run_time[0]) ? item.runtime || item.episode_run_time[0] + ' min' : 'N/A'}</p>
         `;
         content.appendChild(card);
     });

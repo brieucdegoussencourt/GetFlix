@@ -1,8 +1,11 @@
 <?php
+// Start the session
 session_start();
 
+// Include the database connection file
 include("connection.php");
 
+// Check if the user is not logged in, redirect to login page
 if (!isset($_SESSION['username'])) {
     header("location:login.php");
 }
@@ -78,7 +81,7 @@ if (!isset($_SESSION['username'])) {
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-12 col-sm-12 text-content p-5">
-                <h1>Movies & TV Shows</h1>
+                <h1>Stream any movies & TV shows</h1>
                 <form onsubmit="searchData(event); return false;">
                     <input type="text" id="searchInput" placeholder="Search...">
                     <select id="mediaType">

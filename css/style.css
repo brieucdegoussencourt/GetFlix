@@ -182,6 +182,10 @@ footer p {
     font-size: 50px;
 }
 
+.github-icon:hover {
+    filter: hue-rotate(180deg); /* Example effect: change color */
+}
+
 @media (max-width:700px) {
 
     .hero-section img {
