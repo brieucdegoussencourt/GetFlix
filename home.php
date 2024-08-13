@@ -37,6 +37,7 @@ if (!isset($_SESSION['username'])) {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
+                        <!-- User profile dropdown -->
                         <div class="dropdown">
                             <a class='nav-link dropdown-toggle' href='edit.php?id=$res_id' id='dropdownMenuLink'
                                data-bs-toggle='dropdown' aria-expanded='false'>
@@ -45,9 +46,11 @@ if (!isset($_SESSION['username'])) {
                             <ul class="dropdown-menu mt-2 mr-0" aria-labelledby="dropdownMenuLink">
                                 <li>
                                     <?php
+                                    // Fetch user details from the database
                                     $id = $_SESSION['id'];
                                     $query = mysqli_query($conn, "SELECT * FROM users WHERE id = $id");
-
+                                    
+                                    // Display user details
                                     while ($result = mysqli_fetch_assoc($query)) {
                                         $res_username = $result['username'];
                                         $res_email = $result['email'];
@@ -66,7 +69,7 @@ if (!isset($_SESSION['username'])) {
         </div>
     </nav>
 </header>
-
+<!-- Display user message -->
 <div class="name">
     <center>Welcome
         <?php
