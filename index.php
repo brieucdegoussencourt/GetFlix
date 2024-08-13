@@ -52,7 +52,7 @@
                     <h4>Do you love movies as much as we do?</h4>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 text-center">
-                    <img src="./images/logo.png" alt="Getflix Logo" class="img-fluid" >
+                    <img src="../images/logo.png" alt="Getflix Logo" class="img-fluid" >
                 </div>
 
             </div>
