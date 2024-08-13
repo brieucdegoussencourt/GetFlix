@@ -1,7 +1,8 @@
 <?php
 header('Content-Type: application/json');
 
-$apiKey = 'a2e04e780120a2bd372881b15bb83024';
+include 'API_KEY.php';
+
 $query = urlencode($_GET['query']);
 $mediaType = urlencode($_GET['media_type']);
 $url = "https://api.themoviedb.org/3/search/{$mediaType}?api_key={$apiKey}&query={$query}";
