@@ -1,4 +1,6 @@
 <?php
+require __DIR__ . '/vendor/autoload.php';
+
 // Start the session
 session_start();
 
