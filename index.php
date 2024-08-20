@@ -1,16 +1,3 @@
-<?php
-require __DIR__ . '/vendor/autoload.php';
-require 'home.php';
-require 'API_KEY.php';
-require 'connection.php';
-require 'getData.php';
-require 'login.php';
-require 'signup.php';
-require 'edit.php';
-require 'delete.php';
-require 'logout.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
