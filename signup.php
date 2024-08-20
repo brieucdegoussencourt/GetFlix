@@ -4,6 +4,7 @@ $dsn = 'pgsql:host=c3l5o0rb2a6o4l.cluster-czz5s0kz4scl.eu-west-1.rds.amazonaws.c
 
 try {
     $pdo = new PDO($dsn, null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+    echo "Connection successful!<br>";
 } catch (PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
     exit;
@@ -13,6 +14,10 @@ try {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+
+    // Debugging: Print the values to be inserted
+    echo "Username: $username<br>";
+    echo "Password Hash: $password<br>";
 
     // Insert user into database
     $sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
