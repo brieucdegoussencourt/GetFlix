@@ -27,6 +27,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($stmt->execute()) {
         echo "Signup successful!";
+        // Redirect to home.php
+        header("Location: home.php");
+        exit;
     } else {
         echo "Error: " . $stmt->errorInfo()[2];
     }

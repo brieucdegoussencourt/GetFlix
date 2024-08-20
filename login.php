@@ -1,25 +1,37 @@
 <?php
-// Include the connection file
-require 'connection.php';
-
 session_start();
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+// Database connection
+$dsn = 'pgsql:host=c3l5o0rb2a6o4l.cluster-czz5s0kz4scl.eu-west-1.rds.amazonaws.com;port=5432;dbname=dd1nrhh4asd5js;user=ub503r7djq1bfj;password=p35df812fa54b039bac55e4ffc411820ba0f4a12f70009a2efc52857f26072ba4';
+
+try {
+    $pdo = new PDO($dsn, null, null, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+} catch (PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+    exit;
+}
+
+// Example of a login form handling
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Prepare and execute the query
-    $stmt = $pdo->prepare('SELECT * FROM users WHERE username = :username');
-    $stmt->execute(['username' => $username]);
+    // Fetch user from database
+    $sql = "SELECT * FROM users WHERE username = :username";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':username', $username);
+    $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // Verify the password
     if ($user && password_verify($password, $user['password'])) {
-        $_SESSION['user_id'] = $user['id'];
-        header('Location: dashboard.php');
+        // Set session variables
+        $_SESSION['id'] = $user['id'];
+        $_SESSION['username'] = $user['username'];
+        // Redirect to home.php
+        header("Location: home.php");
         exit;
     } else {
-        $error = 'Invalid username or password';
+        echo "Invalid username or password.";
     }
 }
 ?>
@@ -29,45 +41,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="css/style1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Login</title>
 </head>
 <body>
-    <div class="login-container">
-        <form action="login.php" method="POST">
-            <h2>Login</h2>
-            <?php if (isset($error)): ?>
-                <p class="error"><?= $error ?></p>
-            <?php endif; ?>
-            <div class="input-group">
-                <label for="username">Username</label>
-                <input type="text" name="username" id="username" required>
-            </div>
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" class="password" required>
-                <span class="toggle">Show</span>
-            </div>
-            <button type="submit">Login</button>
-            <div class="links">
-                Don't have an account? <a href="signup.php">Signup Now</a>
-            </div>
-        </form>
-    </div>
-    <script>
-        // JavaScript to toggle the visibility of the password field.
-        const toggle = document.querySelector(".toggle"),
-            input = document.querySelector(".password");
-        toggle.addEventListener("click", () => {
-            if (input.type === "password") {
-                input.type = "text";
-                toggle.classList.replace("fa-eye-slash", "fa-eye");
-            } else {
-                input.type = "password";
-            }
-        });
-    </script>
+    <form method="post" action="login.php">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Login</button>
+    </form>
 </body>
 </html>
