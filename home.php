@@ -10,6 +10,7 @@ include("connection.php");
 // Check if the user is not logged in, redirect to login page
 if (!isset($_SESSION['username'])) {
     header("location:login.php");
+    exit;
 }
 ?>
 
