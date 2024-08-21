@@ -10,6 +10,10 @@ include 'API_KEY.php';
 
 try {
     // Get query parameters
+    if (!isset($_GET['query']) || !isset($_GET['media_type'])) {
+        throw new Exception('Missing query parameters');
+    }
+
     $query = urlencode($_GET['query']);
     $mediaType = urlencode($_GET['media_type']);
     $url = "https://api.themoviedb.org/3/search/{$mediaType}?api_key={$apiKey}&query={$query}";
