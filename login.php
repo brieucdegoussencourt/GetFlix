@@ -27,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         print_r($user);
         echo "</pre>";
 
+        // Verify the password
         if (password_verify($password, $user['password'])) {
             // Set session variables
             $_SESSION['id'] = $user['id'];
