@@ -7,10 +7,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
-    // Debugging: Print the values to be inserted
-    echo "Username: $username<br>";
-    echo "Password Hash: $password<br>";
-
     // Insert user into database
     $sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
     $stmt = $pdo->prepare($sql);
@@ -18,7 +14,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bindParam(':password', $password);
 
     if ($stmt->execute()) {
-        echo "Signup successful!";
         // Redirect to home.php
         header("Location: home.php");
         exit;
