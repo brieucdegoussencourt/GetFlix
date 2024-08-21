@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Username and password cannot be empty.";
         }
     } else {
-        echo "Invalid form submission.";
+        echo "Invalid input.";
     }
 }
 ?>
@@ -49,6 +49,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Signup</title>
 </head>
 <body>
+    <?php
+    if (isset($_SESSION['signup_success'])) {
+        echo "<p>" . $_SESSION['signup_success'] . "</p>";
+        unset($_SESSION['signup_success']);
+    }
+    ?>
     <form method="post" action="signup.php">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
