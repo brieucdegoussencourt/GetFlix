@@ -1,4 +1,6 @@
 <?php
+session_start(); // Start the session
+
 // Include the database connection
 include 'connection.php';
 
@@ -19,8 +21,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bindParam(':password', $hashedPassword);
 
             if ($stmt->execute()) {
-                // Redirect to home.php
-                header("Location: home.php");
+                // Set success message in session
+                $_SESSION['signup_success'] = "Signup successful! You can now log in.";
+                // Redirect to the same page to display the message
+                header("Location: signup.php");
                 exit;
             } else {
                 echo "Error: " . $stmt->errorInfo()[2];
