@@ -21,13 +21,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($user && password_verify($password, $user['password'])) {
-        // Set session variables
-        $_SESSION['id'] = $user['id'];
-        $_SESSION['username'] = $user['username'];
-        // Redirect to home.php
-        header("Location: home.php");
-        exit;
+    if ($user) {
+        // Debugging: Print fetched user data
+        echo "<pre>";
+        print_r($user);
+        echo "</pre>";
+
+        if (password_verify($password, $user['password'])) {
+            // Set session variables
+            $_SESSION['id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
+            // Redirect to home.php
+            header("Location: home.php");
+            exit;
+        } else {
+            echo "Invalid username or password.";
+        }
     } else {
         echo "Invalid username or password.";
     }

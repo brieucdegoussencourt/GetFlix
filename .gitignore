@@ -1,3 +1,4 @@
 API_KEY.php
 connection.php
 vendor/
+.env
