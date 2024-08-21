@@ -21,6 +21,7 @@ include 'connection.php';
     <title>Home</title>
 </head>
 <body>
+<header>
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="./index.php"><i class="bi bi-chat"></i>GETFLIX</a>
@@ -43,12 +44,7 @@ include 'connection.php';
                                     // Fetch user details from the database
                                     $id = $_SESSION['id'];
                                     
-                                    // Database connection
                                     try {
-                                        $dsn = "pgsql:host=your_host;port=your_port;dbname=your_dbname;user=your_username;password=your_password";
-                                        $pdo = new PDO($dsn);
-                                        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
                                         // Prepare and execute the query
                                         $stmt = $pdo->prepare("SELECT * FROM users WHERE id = :id");
                                         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
