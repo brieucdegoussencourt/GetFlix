@@ -1,17 +1,14 @@
 <?php
-require __DIR__ . '/vendor/autoload.php';
-
-// Start the session
 session_start();
 
-// Include the database connection file
-include("connection.php");
-
-// Check if the user is not logged in, redirect to login page
-if (!isset($_SESSION['username'])) {
-    header("location:login.php");
+// Ensure the user is logged in
+if (!isset($_SESSION['id'])) {
+    header("Location: login.php");
     exit;
 }
+
+// Include the database connection
+include 'connection.php';
 ?>
 
 <!DOCTYPE html>
@@ -19,17 +16,11 @@ if (!isset($_SESSION['username'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Getflix Stream</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/stream_style.css">
+    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Home</title>
 </head>
 <body>
-
-<!-- navbar section -->
-<header class="navbar-section">
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="./index.php"><i class="bi bi-chat"></i>GETFLIX</a>
@@ -42,7 +33,7 @@ if (!isset($_SESSION['username'])) {
                     <li class="nav-item">
                         <!-- User profile dropdown -->
                         <div class="dropdown">
-                            <a class='nav-link dropdown-toggle' href='edit.php?id=$res_id' id='dropdownMenuLink'
+                            <a class='nav-link dropdown-toggle' href='edit.php?id=<?php echo $res_id; ?>' id='dropdownMenuLink'
                                data-bs-toggle='dropdown' aria-expanded='false'>
                                 <i class='bi bi-person'></i>
                             </a>
@@ -51,19 +42,34 @@ if (!isset($_SESSION['username'])) {
                                     <?php
                                     // Fetch user details from the database
                                     $id = $_SESSION['id'];
-                                    $query = mysqli_query($conn, "SELECT * FROM users WHERE id = $id");
                                     
-                                    // Display user details
-                                    while ($result = mysqli_fetch_assoc($query)) {
-                                        $res_username = $result['username'];
-                                        $res_email = $result['email'];
-                                        $res_id = $result['id'];
+                                    // Database connection
+                                    try {
+                                        $dsn = "pgsql:host=your_host;port=your_port;dbname=your_dbname;user=your_username;password=your_password";
+                                        $pdo = new PDO($dsn);
+                                        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                                        // Prepare and execute the query
+                                        $stmt = $pdo->prepare("SELECT * FROM users WHERE id = :id");
+                                        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+                                        $stmt->execute();
+
+                                        // Fetch the result
+                                        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                                        if ($result) {
+                                            $res_username = $result['username'];
+                                            $res_email = $result['email'];
+                                            $res_id = $result['id'];
+                                        } else {
+                                            echo "User not found.";
+                                        }
+                                    } catch (PDOException $e) {
+                                        echo "Error: " . $e->getMessage();
                                     }
 
                                     echo "<a class='dropdown-item' href='edit.php?id=$res_id'>Change Profile</a>";
                                     ?>
                                 </li>
-                                <li><a class="dropdown-item" href="./index.php">Logout</a></li>
                             </ul>
                         </div>
                     </li>
