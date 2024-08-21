@@ -27,7 +27,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: signup.php");
                 exit;
             } else {
-                echo "Error: " . $stmt->errorInfo()[2];
+                // Detailed error message
+                echo "Error executing query: " . implode(", ", $stmt->errorInfo());
             }
         } else {
             echo "Username and password cannot be empty.";
