@@ -2,23 +2,34 @@
 // Include the database connection
 include 'connection.php';
 
-// Example of a signup form handling
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
-    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    // Validate and sanitize input
+    if (isset($_POST['username']) && isset($_POST['password'])) {
+        $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+        $password = $_POST['password'];
 
-    // Insert user into database
-    $sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(':username', $username);
-    $stmt->bindParam(':password', $password);
+        if (!empty($username) && !empty($password)) {
+            // Hash the password
+            $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
-    if ($stmt->execute()) {
-        // Redirect to home.php
-        header("Location: home.php");
-        exit;
+            // Insert user into database
+            $sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':username', $username);
+            $stmt->bindParam(':password', $hashedPassword);
+
+            if ($stmt->execute()) {
+                // Redirect to home.php
+                header("Location: home.php");
+                exit;
+            } else {
+                echo "Error: " . $stmt->errorInfo()[2];
+            }
+        } else {
+            echo "Username and password cannot be empty.";
+        }
     } else {
-        echo "Error: " . $stmt->errorInfo()[2];
+        echo "Invalid form submission.";
     }
 }
 ?>
