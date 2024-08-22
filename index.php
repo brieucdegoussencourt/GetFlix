@@ -16,7 +16,7 @@
                     
                     <a class="navbar-brand" href="#"><i class="bi bi-chat"></i>GETFLIX</a>
                 
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ms">
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="#home">Home</a>
                         </li>
