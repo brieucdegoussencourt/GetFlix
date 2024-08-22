@@ -9,7 +9,7 @@ error_reporting(E_ALL);
 // Include the database connection
 include 'connection.php';
 
-// Example of a login form handling
+// Login form handling
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -44,8 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -57,6 +56,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Login</title>
 </head>
 <body>
+    <!-- navbar section   -->
+    <header class="navbar-section">
+        <nav class="navbar navbar-expand-sm">
+            <div class="container-fluid"> 
+                    <a class="navbar-brand" href="index.php"><i class="bi bi-chat"></i>GETFLIX</a>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="home.php">Stream</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.php">login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="signup.php">signup</a>
+                        </li>
+                    </ul>
+            </div>
+        </nav>
+    </header>
+
+
+    
     <form method="post" action="login.php">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
