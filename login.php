@@ -1,5 +1,3 @@
-<!-- Main PHP Section -->
-
 <?php
 session_start();
 
@@ -16,6 +14,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
+    // Debug: Check if POST data is received
+    echo "Username: $username<br>";
+    echo "Password: $password<br>";
+
     // Fetch user from database
     $sql = "SELECT * FROM users WHERE username = :username";
     $stmt = $pdo->prepare($sql);
@@ -23,25 +25,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    // Debug: Check if user data is fetched
+    echo "User data: ";
+    print_r($user);
+    echo "<br>";
+
     if ($user) {
-        // Debugging: Print fetched user data
-        echo "<pre>";
-        print_r($user);
-        echo "</pre>";
+        // Debug: Print the hashed password from the database
+        echo "Hashed Password from DB: " . $user['password'] . "<br>";
 
         // Verify the password
-        if (password_verify($password, $user['password'])) {
-            // Set session variables
-            $_SESSION['id'] = $user['id'];
+        $password_verified = password_verify($password, $user['password']);
+        
+        // Debug: Print the result of password verification
+        echo "Password Verified: " . ($password_verified ? 'true' : 'false') . "<br>";
+
+        if ($password_verified) {
+            // Password is correct, start a session
+            $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
-            // Redirect to home.php
-            header("Location: home.php");
+            header('Location: dashboard.php'); // Redirect to a dashboard or home page
             exit;
         } else {
-            echo "Invalid username or password.";
+            $error = 'Invalid username or password.';
         }
     } else {
-        echo "Invalid username or password.";
+        $error = 'Invalid username or password.';
     }
 }
 ?>
@@ -81,22 +90,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </header>
 
      <!-- hero section  -->
-    <section id="home" class="hero-section">
+     <section id="home" class="hero-section">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-sm-12 text-content">
                     <form method="post" action="login.php">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" required>
-                    <br>
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" required>
-                    <br>
-                    <button type="submit">Login</button>
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" required>
+                        <br>
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                        <br>
+                        <button type="submit">Login</button>
                     </form>
+                    <?php if (isset($error)): ?>
+                        <p style="color: red;"><?php echo $error; ?></p>
+                    <?php endif; ?>
                 </div>
                 <div class="col-md-6 col-sm-12 text-center d-flex align-items-center justify-content-center">
-                    <img src="./images/Logo.png" alt="Getflix Logo" class="img-fluid" >
+                    <img src="./images/Logo.png" alt="Getflix Logo" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -117,5 +129,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         crossorigin="anonymous"></script>
 
 </body>
-
 </html>
