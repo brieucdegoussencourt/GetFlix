@@ -1,4 +1,8 @@
 <?php
+
+// Include Composer's autoloader
+require 'vendor/autoload.php';
+
 use Dotenv\Dotenv;
 
 // Load .env file

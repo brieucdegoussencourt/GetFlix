@@ -3,6 +3,12 @@
 
 Consolidation project. Full Stack
 
+## Main files
+
+- `connection.php`
+
+The purpose of connection.php is to establish a connection to a PostgreSQL database using the PDO (PHP Data Objects) extension.
+
 ## Technologies Used
 - `HTML`
 - `CSS`
