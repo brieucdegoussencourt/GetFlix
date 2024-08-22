@@ -8,24 +8,32 @@ include 'connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate and sanitize input
-    if (isset($_POST['username']) && isset($_POST['password'])) {
-        $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
-        $password = $_POST['password'];
+    if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['email'])) {
+        $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
+        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 
-        if (!empty($username) && !empty($password)) {
+        if (!empty($username) && !empty($password) && !empty($email)) {
+            // Validate email format
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                echo "Invalid email format";
+                exit;
+            }
+
             // Hash the password
             $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
             // Insert user into database
-            $sql = "INSERT INTO users (username, password) VALUES (:username, :password)";
+            $sql = "INSERT INTO users (username, password, email) VALUES (:username, :password, :email)";
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':username', $username);
             $stmt->bindParam(':password', $hashedPassword);
+            $stmt->bindParam(':email', $email);
 
             if ($stmt->execute()) {
                 // Set success message in session
                 $_SESSION['signup_success'] = "Signup successful! You can now log in.";
-                // Redirect to the same page to display the message
+                // Redirect to login.php and display the message
                 header("Location: signup.php");
                 exit;
             } else {
@@ -33,10 +41,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "Error executing query: " . implode(", ", $stmt->errorInfo());
             }
         } else {
-            echo "Username and password cannot be empty.";
+            echo "All fields are required.";
         }
     } else {
-        echo "Invalid input.";
+        echo "Invalid form submission.";
     }
 }
 ?>
@@ -92,12 +100,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="row">
                 <div class="col-md-6 col-sm-12 text-content">
                 <form method="post" action="signup.php">
-                  <label for="email">Email</label>
-                  <input type="email" id="username" name="username" required>
                   <label for="username">Username</label>
                   <input type="text" id="username" name="username" required>
                   <label for="password">Password</label>
                   <input type="password" id="password" name="password" required>
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" required>
                   <button type="submit">Signup</button>
                 </form>
                 </div>
