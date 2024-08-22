@@ -1,4 +1,4 @@
-<!-- PHP Section -->
+<!-- Main PHP Section -->
 
 <?php
 session_start();
@@ -53,8 +53,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style1.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
@@ -84,7 +82,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
      <!-- hero section  -->
      <section  class="hero-section">
-        <div id="LoginForm">
             <form method="post" action="login.php">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>
@@ -94,20 +91,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <br>
                 <button type="submit">Login</button>
             </form>
-        </div>
     </section>
 
     <!-- footer section  -->
     <footer>
-        <div class="container text-center">
-            <div class="row text-center">
                 <div class="col text-center">
                     <a href="https://github.com/brieucdegoussencourt/GetFlix" target="_blank"><img
                     src="./images/github-icon-red.png" width="100" alt="github icon" class="github-icon"></a>
                     <h6 class="mt-3">brieucdegoussencourt / BeCode / July 2024</h6>
                 </div>
-            </div>
-        </div>
     </footer>
 
     <!-- script section  -->
