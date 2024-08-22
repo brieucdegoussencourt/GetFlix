@@ -90,10 +90,12 @@ body{
 }
 
 .hero-section h1 {
-    font-size: 60px;
+    font-size: 50px;
     color: rgb(254, 255, 237, 1);
     text-transform: capitalize;
     font-weight: bold;
+    margin-bottom: 0;
+    
 }
 
 .hero-section h4 {
@@ -122,7 +124,7 @@ body{
 }
 
 form{
-    padding: 5rem;
+    padding: 3rem;
     max-width: 500px;
 }
 label {
@@ -206,7 +208,7 @@ footer h6{
     filter: hue-rotate(180deg); /* Example effect: change color */
 }
 
-@media (max-width:700px) {
+@media (max-width:768px) {
 
     .hero-section img {
         height: 350px;

@@ -81,16 +81,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </header>
 
      <!-- hero section  -->
-     <section  class="hero-section">
-            <form method="post" action="login.php">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
-                <br>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-                <br>
-                <button type="submit">Login</button>
-            </form>
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-12 text-content">
+                    <form method="post" action="login.php">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                    <br>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                    <br>
+                    <button type="submit">Login</button>
+                    </form>
+                </div>
+                <div class="col-md-6 col-sm-12 text-center d-flex align-items-center justify-content-center">
+                    <img src="./images/Logo.png" alt="Getflix Logo" class="img-fluid" >
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- footer section  -->
