@@ -83,17 +83,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </header>
 
      <!-- hero section  -->
-     <section id="LoginForm" class="hero-section">
-
-                        <form method="post" action="login.php">
-                        <label for="username">Username:</label>
-                        <input type="text" id="username" name="username" required>
-                        <br>
-                        <label for="password">Password:</label>
-                        <input type="password" id="password" name="password" required>
-                        <br>
-                        <button type="submit">Login</button>
-                        </form>
+     <section  class="hero-section">
+        <div id="LoginForm">
+            <form method="post" action="login.php">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <br>
+                <button type="submit">Login</button>
+            </form>
+        </div>
     </section>
 
     <!-- footer section  -->
