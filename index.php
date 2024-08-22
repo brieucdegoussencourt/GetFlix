@@ -12,16 +12,11 @@
     <!-- navbar section   -->
     <header class="navbar-section">
         <nav class="navbar navbar-expand-sm">
-            <div class="container-fluid">
-                    
-                    <a class="navbar-brand" href="#"><i class="bi bi-chat"></i>GETFLIX</a>
-                
+            <div class="container-fluid"> 
+                    <a class="navbar-brand" href="index.php"><i class="bi bi-chat"></i>GETFLIX</a>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#home">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./home.php">Stream</a>
+                            <a class="nav-link" href="home.php">Stream</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="login.php">login</a>
