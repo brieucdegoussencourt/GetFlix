@@ -121,6 +121,9 @@ body{
     width: auto;
 }
 
+#loginForm{
+    padding: 5rem;
+}
 label {
     color: rgb(254, 255, 237, 1);
     margin-top: 20px;

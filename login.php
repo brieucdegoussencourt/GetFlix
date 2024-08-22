@@ -84,6 +84,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
      <!-- hero section  -->
      <section id="home" class="hero-section">
+        <div class="container" id="LoginForm">
+            
                         <form method="post" action="login.php">
                         <label for="username">Username:</label>
                         <input type="text" id="username" name="username" required>
@@ -93,6 +95,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <br>
                         <button type="submit">Login</button>
                         </form>
+           
+        </div>
     </section>
 
     <!-- footer section  -->
