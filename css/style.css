@@ -104,9 +104,9 @@ body{
 
 .hero-section button {
     margin-top: 20px;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: rgba(205, 22, 30,1);;
-    padding: 0rem 2rem;
+    padding: 1rem 2rem;
 }
 
 .hero-section button:hover {
