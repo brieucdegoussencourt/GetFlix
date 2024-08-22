@@ -11,12 +11,12 @@
 </head>
     <!-- navbar section   -->
     <header class="navbar-section">
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-sm">
             <div class="container-fluid">
                     
                     <a class="navbar-brand" href="#"><i class="bi bi-chat"></i>GETFLIX</a>
                 
-                    <ul class="navbar-nav ms">
+                    <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="#home">Home</a>
                         </li>
