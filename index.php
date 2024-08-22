@@ -38,7 +38,7 @@
                     <h1>Stream unlimited trailers !</h1>
                     <h4>Do you love movies as much as we do?</h4>
                 </div>
-                <div class="col-md-6 col-sm-12 text-center">
+                <div class="col-md-6 col-sm-12 text-content p-5">
                     <img src="./images/Logo.png" alt="Getflix Logo" class="img-fluid" >
                 </div>
             </div>
