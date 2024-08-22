@@ -1,3 +1,5 @@
+<!-- PHP Section -->
+
 <?php
 session_start();
 
@@ -44,8 +46,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-
-
+<!-- HTML Section -->
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,6 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Login</title>
 </head>
 <body>
+
     <!-- navbar section   -->
     <header class="navbar-section">
         <nav class="navbar navbar-expand-sm">
@@ -78,32 +81,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </nav>
     </header>
+
      <!-- hero section  -->
      <section id="home" class="hero-section">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-sm-12 text-content p-5">
-                <form method="post" action="login.php">
-                <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <button type="submit">Login</button>
-    </form>
+                    <form method="post" action="login.php">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    <button type="submit">Login</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
-
-
-    <form method="post" action="login.php">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <button type="submit">Login</button>
-    </form>
     <!-- footer section  -->
     <footer>
         <div class="container text-center">
