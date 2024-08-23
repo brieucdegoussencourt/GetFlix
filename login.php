@@ -121,7 +121,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="col text-center">
                     <a href="https://github.com/brieucdegoussencourt/GetFlix" target="_blank"><img
                     src="./images/github-icon-red.png" width="100" alt="github icon" class="github-icon"></a>
-                    <h6 class="mt-3">brieucdegoussencourt / BeCode / July 2024</h6>
+                    <p class="mt-3">brieucdegoussencourt / BeCode / July 2024</p>
                 </div>
     </footer>
 
