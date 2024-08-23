@@ -57,6 +57,12 @@ body{
 
 /* hero section  */
 
+.name{
+    font-size: 30px;
+    color:  rgb(254, 255, 237, 1);;
+    padding: 2rem;
+}
+
 
 .message  {
     padding: 3rem;
