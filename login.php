@@ -1,22 +1,18 @@
 <?php
 session_start();
 
-// Enable error reporting
+// Include the database connection
+include 'connection.php';
+
+// Enable error reporting for debugging
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
-// Include the database connection
-include 'connection.php';
 
 // Login form handling
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
-
-    // Debug: Check if POST data is received
-    echo "Username: $username<br>";
-    echo "Password: $password<br>";
 
     // Fetch user from database
     $sql = "SELECT * FROM users WHERE username = :username";
@@ -25,26 +21,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // Debug: Check if user data is fetched
-    echo "User data: ";
-    print_r($user);
-    echo "<br>";
-
     if ($user) {
-        // Debug: Print the hashed password from the database
-        echo "Hashed Password from DB: " . $user['password'] . "<br>";
+        // Log fetched user data
+        error_log("Fetched user data: " . print_r($user, true));
 
-        // Verify the password
+        // Verify password
         $password_verified = password_verify($password, $user['password']);
-        
-        // Debug: Print the result of password verification
-        echo "Password Verified: " . ($password_verified ? 'true' : 'false') . "<br>";
+
+        // Log password verification result
+        error_log("Password verified: " . ($password_verified ? 'true' : 'false'));
 
         if ($password_verified) {
             // Password is correct, start a session
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
-            header('Location: dashboard.php'); // Redirect to a dashboard or home page
+            header('Location: home.php'); // Redirect to home page
             exit;
         } else {
             $error = 'Invalid username or password.';

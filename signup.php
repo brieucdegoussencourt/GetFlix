@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate and sanitize input
     if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['email'])) {
         $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
-        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $password = $_POST['password']; // Do not hash here
         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 
         if (!empty($username) && !empty($password) && !empty($email)) {
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Set success message in session
                 $_SESSION['signup_success'] = "Signup successful! You can now log in.";
                 // Redirect to login.php and display the message
-                header("Location: signup.php");
+                header("Location: login.php");
                 exit;
             } else {
                 // Detailed error message
@@ -99,15 +99,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-sm-12 text-content">
-                <form method="post" action="signup.php">
-                  <label for="username">Username</label>
-                  <input type="text" id="username" name="username" required>
-                  <label for="password">Password</label>
-                  <input type="password" id="password" name="password" required>
-                  <label for="email">Email</label>
-                  <input type="email" id="email" name="email" required>
-                  <button type="submit">Signup</button>
-                </form>
+                    <form method="post" action="signup.php">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                    <button type="submit">Signup</button>
+                    </form>
+                    <?php if (isset($_SESSION['signup_success'])): ?>
+                            <p style="color: green;"><?php echo $_SESSION['signup_success']; unset($_SESSION['signup_success']); ?></p>
+                    <?php endif; ?>
                 </div>
                 <div class="col-md-6 col-sm-12 text-center d-flex align-items-center justify-content-center">
                     <img src="./images/Logo.png" alt="Getflix Logo" class="img-fluid" >

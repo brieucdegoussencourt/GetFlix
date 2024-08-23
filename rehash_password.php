@@ -3,13 +3,14 @@
 include 'connection.php';
 
 // Rehash the password
-$new_password = 'vian';
+$new_password = 'password';
 $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
 
-// Update the password in the database for user 'boris'
+// Update the password in the database for user 'user'
 $sql = "UPDATE users SET password = :password WHERE username = :username";
 $stmt = $pdo->prepare($sql);
 $stmt->bindParam(':password', $hashed_password);
+$username = 'user'; // Set the username to 'user'
 $stmt->bindParam(':username', $username);
 $stmt->execute();
 

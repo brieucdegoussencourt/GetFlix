@@ -1,14 +1,16 @@
 <?php
 session_start();
 
+// Include the database connection
+include 'connection.php';
+
 // Ensure the user is logged in
 if (!isset($_SESSION['id'])) {
     header("Location: login.php");
     exit;
 }
 
-// Include the database connection
-include 'connection.php';
+
 ?>
 
 <!DOCTYPE html>
