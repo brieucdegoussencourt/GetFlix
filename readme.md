@@ -20,6 +20,8 @@ The purpose of connection.php is to establish a connection to a PostgreSQL datab
 ## Room for improvement
 
 - secure the code by removing hardcoded keys
+- cleaning unnecessary css & other files
+- eliminate render-blocking resources for best performance
 - embed youtube videos
 
 ## License
