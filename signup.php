@@ -146,7 +146,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <?php endif; ?>
                 </div>
                 <div class="col-md-6 col-sm-12 text-center d-flex align-items-center justify-content-center">
-                    <img src="./images/Logo.png" alt="Getflix Logo" class="img-fluid" >
+                    <img src="./images/Logo.webp" alt="Getflix Logo" class="img-fluid" >
                 </div>
             </div>
         </div>
