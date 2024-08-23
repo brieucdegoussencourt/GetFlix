@@ -29,18 +29,12 @@ if (!isset($_SESSION['user_id'])) {
     <header class="navbar-section">
         <nav class="navbar navbar-expand-sm">
             <div class="container-fluid"> 
-                    <a class="navbar-brand" href="index.php"><i class="bi bi-chat"></i>GETFLIX</a>
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="home.php">Stream</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.php">login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="signup.php">signup</a>
-                        </li>
-                    </ul>
+                <a class="navbar-brand" href="index.php"><i class="bi bi-chat"></i>GETFLIX</a>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.php">Logout</a>
+                    </li>
+                </ul>
             </div>
         </nav>
     </header>
@@ -95,6 +89,6 @@ if (!isset($_SESSION['user_id'])) {
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
             crossorigin="anonymous"></script>
     <script src="../frontend/app.js"></script>
-    
+
 </body>
 </html>
