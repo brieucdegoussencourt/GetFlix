@@ -37,7 +37,7 @@
                     <h1>Stream unlimited trailers</h1>
                 </div>
                 <div class="col-md-6 col-sm-12 text-center">
-                    <img src="./images/Logo.png" alt="Getflix Logo" class="img-fluid" >
+                    <img src="./images/Logo.webp" alt="Getflix Logo" class="img-fluid" >
                 </div>
             </div>
         </div>
