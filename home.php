@@ -83,7 +83,7 @@ if (!isset($_SESSION['user_id'])) {
                     <a href="https://github.com/brieucdegoussencourt" target="_blank">
                         <img src="./images/github-icon-red.png" width="100" alt="github icon" class="github-icon">
                     </a>
-                    <p class="mt-3">brieucdegoussencourt / BeCode / July 2024</p>
+                    <p> class="mt-3">brieucdegoussencourt / BeCode / July 2024</p>
                 </div>
             </div>
         </div>

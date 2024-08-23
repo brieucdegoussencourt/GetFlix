@@ -17,13 +17,6 @@ body{
     background: rgb(254, 255, 237, 1);
 }
 
-.navbar .navbar-toggler {
-    background: rgba(205, 22, 30,1);
-    border-radius: 50%;
-    padding: 15px;
-    outline: none;
-    border: none;
-}
 
 .navbar #navbarNav {
     text-align: center;
@@ -37,32 +30,18 @@ body{
     font-weight: 600;
 }
 
+.navbar .navbar-brand:hover{
+    color: #000807;
+}
+
 .navbar .navbar-brand i {
     background: rgb(254, 255, 237, 1);
     border-radius: 50%;
     padding: 10px 15px;
 }
 
-.navbar .collapse {
-    background: rgb(254, 255, 237, 1);
-}
 
-.navbar .dropdown-menu{
-    width: 12px;
-}
 
-.navbar .dropdown-menu li a{
-    color: #1c456d;
-    font-size: 15px;
-}
-
-.navbar ul li .bi{
-    background: rgb(254, 255, 237, 1);
-    color: rgb(0, 8, 7);
-    font-weight: bold;
-    padding: 10px 15px;
-    border-radius: 50%;
-}
 
 .navbar ul li a {
     color: rgba(205, 22, 30,1);
@@ -74,13 +53,6 @@ body{
 
 .navbar ul li a:hover {
     color: #000807;
-}
-
-.name{
-    font-size: 30px;
-    color:  rgb(254, 255, 237, 1);;
-    background-color: #000807;
-    padding: 2rem;
 }
 
 /* hero section  */
@@ -151,64 +123,17 @@ input, #mediaType {
 
 /* footer section  */
 
+
 footer {
     padding: 40px;
     background:  rgb(254, 255, 237, 1);
 }
 
-footer .logo {
-    font-size: 30px;
-    color: #fff;
-    font-weight: 400;
-}
-
-footer .logo i {
-    font-size: 25px;
-    background: #fff;
-    border-radius: 50%;
-    padding: 10px 15px;
-}
-
-footer ul li {
-    list-style: none;
-    margin-top: 20px;
-}
-
-a{
-    color:  rgba(205, 22, 30,1) !important;
-}
-footer ul li a {
-    text-decoration: none;
-    color: rgba(205, 22, 30,1)1;
-    margin-left: 30px;
-    font-size: 15px;
-    text-transform: capitalize;
-    font-weight: 500;
-}
-
-footer ul li a:hover {
-    color: #FFA500;
-}
-
-footer p {
-    color: #fff;
-    margin-top: 20px;
+footer p{
     font-size: 14px;
-    margin-left: 30px;
+    color: #000807;
 }
 
-footer h6{
-    font-size: 14px;
-}
-
-.back-to-top {
-    background: #088F8F;
-    height: 50px;
-    width: 50px;
-    color: #fff;
-    border-radius: 50%;
-    font-size: 50px;
-}
 
 .github-icon:hover {
     filter: hue-rotate(180deg); /* Example effect: change color */
@@ -218,29 +143,5 @@ footer h6{
 
     .hero-section img {
         height: 350px;
-    }
-
-    .services-section .services .card {
-        margin-bottom: 50px;
-    }
-
-    .services-section .services .row1 {
-        margin-bottom: 0px;
-    }
-
-    .about-section{
-        padding: 50px 30px;
-    }
-    .about-section img {
-        height: 300px;
-    }
-
-    .contact-section{
-        padding: 50px;
-    }
-
-    footer ul li a {
-        margin-left: 5px;
-        letter-spacing: 0;
     }
 }
