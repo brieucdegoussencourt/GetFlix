@@ -27,7 +27,7 @@ async function searchData(event) {
             const trailerUrl = `https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=a2e04e780120a2bd372881b15bb83024`;
             const trailerResponse = await fetch(trailerUrl);
             const trailerData = await trailerResponse.json();
-            const trailer = trailerData.results.find(video => video.type === 'Trailer' && video.site === 'YouTube');
+            const trailer = trailerData.results ? trailerData.results.find(video => video.type === 'Trailer' && video.site === 'YouTube') : null;
             movie.trailerLink = trailer ? `https://www.youtube.com/watch?v=${trailer.key}` : null;
             return movie;
         }));
@@ -48,9 +48,10 @@ function displayData(data) {
         card.innerHTML = `
              <div class="image-container">
                 <img src="https://image.tmdb.org/t/p/w500${item.poster_path}" alt="${item.title || item.name}">
-                <button class="play-button" ${item.trailerLink ? `onclick="window.open('${item.trailerLink}', '_blank')"` : ''}>Play</button>
+                <button id="play-button" ${item.trailerLink ? `onclick="window.open('${item.trailerLink}', '_blank')"` : ''}><img src="./images/play_circle_red.png" alt="Play Icon"></button>
             </div>
-            <h3>${item.title || item.name}</h3>
+            <h3>${item.title || item.name}</h3>   
+            <p>Year: ${item.year}</p>
         `;
         content.appendChild(card);
     });

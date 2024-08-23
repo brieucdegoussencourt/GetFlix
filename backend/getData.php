@@ -33,10 +33,25 @@ try {
     // Process the results
     $results = [];
     foreach ($data['results'] as $item) {
+        // Fetch additional details for each item
+        $detailsUrl = "https://api.themoviedb.org/3/{$mediaType}/{$item['id']}?api_key={$apiKey}";
+        $detailsResponse = file_get_contents($detailsUrl);
+        $detailsData = json_decode($detailsResponse, true);
+
+        if ($mediaType === 'movie') {
+            $duration = $detailsData['runtime'];
+            $year = substr($detailsData['release_date'], 0, 4);
+        } else if ($mediaType === 'tv') {
+            $duration = $detailsData['episode_run_time'][0] ?? null;
+            $year = substr($detailsData['first_air_date'], 0, 4);
+        }
+
         $results[] = [
             'id' => $item['id'],
             'title' => $item['title'] ?? $item['name'],
-            'poster_path' => $item['poster_path']
+            'poster_path' => $item['poster_path'],
+            'duration' => $duration,
+            'year' => $year
         ];
     }
 

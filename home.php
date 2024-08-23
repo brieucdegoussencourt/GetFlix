@@ -52,8 +52,10 @@ if (!isset($_SESSION['user_id'])) {
                 </center>
             </div>
             <div class="row">
-                <div class="col-lg-6 col-md-12 col-sm-12 text-content p-5">
+                <div class="col-md-6 col-sm-12 text-content p-5">
                     <h1>Stream any movies & TV shows</h1>
+                </div>
+                <div class="col-md-6 col-sm-12 text-center d-flex align-items-center justify-content-center p-5">
                     <form id="searchForm" onsubmit="searchData(event); return false;">
                         <input type="text" id="searchInput" placeholder="Search...">
                         <select id="mediaType">
