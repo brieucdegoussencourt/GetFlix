@@ -17,6 +17,9 @@ The purpose of connection.php is to establish a connection to a PostgreSQL datab
 - `PHP`
 - `MySQL`
 
+## Room for improvement
+
+- embed youtube videos.
 
 ## License
 

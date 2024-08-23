@@ -66,6 +66,7 @@ if (!isset($_SESSION['user_id'])) {
                     </form>
                 </div>
             </div>
+            <!-- This is where the searched content will be displayed. -->
             <div class="row">
                 <div id="content"></div>
             </div>
