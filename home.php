@@ -40,7 +40,7 @@ if (!isset($_SESSION['user_id'])) {
     </header>
 
     <!-- hero section -->
-    <section id="home" class="hero-section">
+    <div id="home" class="hero-section">
         <div class="container">
             <!-- Display user message -->
             <div class="name">
@@ -71,7 +71,7 @@ if (!isset($_SESSION['user_id'])) {
                 <div id="content"></div>
             </div>
         </div>
-    </section>
+</div>
 
     <!-- footer section -->
     <footer>

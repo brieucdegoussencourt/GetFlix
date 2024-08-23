@@ -120,7 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      <!-- hero section  -->
 
 
-    <section id="home" class="hero-section">
+    <div id="home" class="hero-section">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-sm-12 text-content p-5 mt-3">
@@ -148,7 +148,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- footer section  -->
     <footer>
