@@ -5,12 +5,10 @@ session_start();
 include 'connection.php';
 
 // Ensure the user is logged in
-if (!isset($_SESSION['id'])) {
+if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit;
 }
-
-
 ?>
 
 <!DOCTYPE html>

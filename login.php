@@ -35,13 +35,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Password is correct, start a session
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
+            error_log("Session started for user: " . $_SESSION['username']);
             header('Location: home.php'); // Redirect to home page
             exit;
         } else {
             $error = 'Invalid username or password.';
+            error_log($error);
         }
     } else {
         $error = 'Invalid username or password.';
+        error_log($error);
     }
 }
 ?>
