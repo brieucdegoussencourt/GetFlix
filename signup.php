@@ -17,11 +17,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
         $password = $_POST['password']; // Do not hash here
         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-
         if (!empty($username) && !empty($password) && !empty($email)) {
             // Validate email format
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                echo "Invalid email format";
+                $_SESSION['error'] = "Invalid email format";
+                header("Location: signup.php");
+                exit;
+            }
+
+            // Check if username already exists
+            $sql = "SELECT COUNT(*) FROM users WHERE username = :username";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':username', $username);
+            $stmt->execute();
+            if ($stmt->fetchColumn() > 0) {
+                $_SESSION['error'] = "Username already exists.";
+                header("Location: signup.php");
+                exit;
+            }
+
+            // Check if email already exists
+            $sql = "SELECT COUNT(*) FROM users WHERE email = :email";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':email', $email);
+            $stmt->execute();
+            if ($stmt->fetchColumn() > 0) {
+                $_SESSION['error'] = "Email already exists.";
+                header("Location: signup.php");
                 exit;
             }
 
@@ -44,6 +66,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } else {
                 // Detailed error message
                 echo "Error executing query: " . implode(", ", $stmt->errorInfo());
+                header("Location: signup.php");
+                exit;
             }
         } else {
             echo "All fields are required.";
@@ -94,16 +118,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ?>
 
      <!-- hero section  -->
-     <section  class="hero-section">
-        
 
-        
-    </section>
 
     <section id="home" class="hero-section">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-sm-12 text-content">
+                    <?php
+                    if (isset($_SESSION['error'])) {
+                        echo '<div class="message">' . $_SESSION['error'] . '</div>';
+                        unset($_SESSION['error']);
+                    }
+                    ?>
                     <form method="post" action="signup.php">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" required>

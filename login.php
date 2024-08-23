@@ -83,11 +83,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </nav>
     </header>
 
-     <!-- hero section  -->
-     <section id="home" class="hero-section">
+    <!-- hero section  -->
+    <section id="home" class="hero-section">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-sm-12 text-content">
+                    <?php if (isset($error)): ?>
+                        <p class="message"><?php echo $error; ?></p>
+                    <?php endif; ?>
+                    <?php 
+                    if (isset($_SESSION['signup_success'])) {
+                        echo '<p class="message">' . $_SESSION['signup_success'] . '</p>';
+                        unset($_SESSION['signup_success']);
+                    }
+                    ?>
                     <form method="post" action="login.php">
                         <label for="username">Username</label>
                         <input type="text" id="username" name="username" required>
@@ -97,9 +106,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <br>
                         <button type="submit">Login</button>
                     </form>
-                    <?php if (isset($error)): ?>
-                        <p style="color: red;"><?php echo $error; ?></p>
-                    <?php endif; ?>
                 </div>
                 <div class="col-md-6 col-sm-12 text-center d-flex align-items-center justify-content-center">
                     <img src="./images/Logo.png" alt="Getflix Logo" class="img-fluid">
