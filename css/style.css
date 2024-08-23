@@ -139,9 +139,9 @@ footer p{
     filter: hue-rotate(180deg); /* Example effect: change color */
 }
 
-@media (max-width:768px) {
+/* @media (max-width:768px) {
 
     .hero-section img {
         height: 350px;
     }
-}
+} */
